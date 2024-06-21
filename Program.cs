@@ -16,6 +16,7 @@
 
 
 using ButikkPP;
+using static System.Formats.Asn1.AsnWriter;
 
 Shops shop = new Shops();
 List<Shops> allShops = new List<Shops>()
@@ -35,6 +36,8 @@ void Main()
 {
     while (true)
     {
+        Console.Clear();
+
         Console.WriteLine("Welcome to the shops app!");
         Console.WriteLine("\t Here are some options:");
 
@@ -46,12 +49,11 @@ void Main()
 
 void MainMenu()
 {
-    Console.Clear();
     Console.WriteLine("\n\t1. See all shops");
-    Console.WriteLine("\t2. Check prizes");
+    Console.WriteLine("\t2. Check prices");
     Console.WriteLine("\t3. Add a new shop");
     Console.WriteLine("\t4. Close");
-    
+
     var MainResponse = Console.ReadKey().KeyChar;
     switch (MainResponse)
     {
@@ -62,6 +64,7 @@ void MainMenu()
             shop.SortingMethod(allShops);
             break;
         case '3':
+            shop.addNew(allShops);
             break;
         case '4':
             Console.Clear();
@@ -78,24 +81,3 @@ void MainMenu()
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
